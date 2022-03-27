@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=BoilR
+Comment=Add non-steam games to your steam library
+Type=Application
+# should be the same as the Cargo project name
+Exec=boilr
+Terminal=false
+Categories=Utility;
+Keywords=Rust;Flatpak;
+Icon=art/logo32.png
+StartupNotify=true
