@@ -78,12 +78,44 @@ impl MyEguiApp {
     fn render_amazon_settings(&mut self, ui: &mut egui::Ui) {
         ui.heading("Amazon");
         ui.checkbox(&mut self.settings.amazon.enabled, "Import form Amazon");
+        if self.settings.amazon.enabled {
+            ui.checkbox(&mut self.settings.amazon.prepend, "Prepend 'Amazon Games.exe'");
+            ui.horizontal(|ui| {
+                let mut empty_string = "".to_string();
+                let amazon_location = self
+                    .settings
+                    .amazon
+                    .location
+                    .as_mut()
+                    .unwrap_or(&mut empty_string);
+                ui.label("Amazon Games Folder: ");
+                if ui.text_edit_singleline(amazon_location).changed() {
+                    self.settings.amazon.location = Some(amazon_location.to_string());
+                }
+            });
+        }
         ui.add_space(SECTION_SPACING);
     }
 
     fn render_uplay_settings(&mut self, ui: &mut egui::Ui) {
         ui.heading("Uplay");
         ui.checkbox(&mut self.settings.uplay.enabled, "Import form Uplay");
+        if self.settings.uplay.enabled {
+            ui.checkbox(&mut self.settings.uplay.prepend, "Prepend 'Ubisoft Connect.exe'");
+            ui.horizontal(|ui| {
+                let mut empty_string = "".to_string();
+                let uplay_location = self
+                    .settings
+                    .uplay
+                    .location
+                    .as_mut()
+                    .unwrap_or(&mut empty_string);
+                ui.label("Uplay Folder: ");
+                if ui.text_edit_singleline(uplay_location).changed() {
+                    self.settings.uplay.location = Some(uplay_location.to_string());
+                }
+            });
+        }
         ui.add_space(SECTION_SPACING);
     }
 
@@ -111,6 +143,22 @@ impl MyEguiApp {
     fn render_origin_settings(&mut self, ui: &mut egui::Ui) {
         ui.heading("Origin");
         ui.checkbox(&mut self.settings.origin.enabled, "Import from Origin");
+        if self.settings.origin.enabled {
+            ui.checkbox(&mut self.settings.origin.prepend, "Prepend Origin.exe");
+            ui.horizontal(|ui| {
+                let mut empty_string = "".to_string();
+                let origin_location = self
+                    .settings
+                    .origin
+                    .location
+                    .as_mut()
+                    .unwrap_or(&mut empty_string);
+                ui.label("Origin Folder: ");
+                if ui.text_edit_singleline(origin_location).changed() {
+                    self.settings.origin.location = Some(origin_location.to_string());
+                }
+            });
+        }
         ui.add_space(SECTION_SPACING);
     }
 

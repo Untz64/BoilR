@@ -4,4 +4,6 @@ use serde::{Deserialize, Serialize};
 
 pub struct OriginSettings {
     pub enabled: bool,
+    pub prepend: bool,
+    pub location: Option<String>,
 }

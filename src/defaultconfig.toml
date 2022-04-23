@@ -8,6 +8,7 @@ prefer_animated = false
 
 [origin]
 enabled = true
+prepend = false
 
 [gog]
 enabled = true
@@ -20,6 +21,7 @@ safe_launch = []
 
 [uplay]
 enabled = true
+prepend = false
 
 [legendary]
 enabled = true
@@ -36,6 +38,7 @@ enabled = true
 
 [amazon]
 enabled = true
+prepend = false
 
 [steam]
 create_collections = false
